@@ -13,6 +13,9 @@ class DateFilter extends React.Component {
 	render() {
 		const { from, to } = this.props;
 		const modifiers = { start: from, end: to };
+		const disabled = {
+			after: new Date()
+		};
 
 		return (
 			<div className="date-filter">
@@ -20,6 +23,7 @@ class DateFilter extends React.Component {
 					className="Selectable"
 					selectedDays={[ from, { from, to } ]}
 					modifiers={modifiers}
+					disabledDays={disabled}
 					onDayClick={this.handleDayClick.bind(this)}
 				/>
 			</div>

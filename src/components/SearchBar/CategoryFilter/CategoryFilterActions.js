@@ -18,3 +18,10 @@ function getCategoryKeyword(payload) {
 		payload: payload
 	};
 }
+
+export function setCategory(payload) {
+	return {
+		type: 'SEARCH_SET_CATEGORY',
+		payload: payload
+	};
+}

@@ -1,21 +1,36 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Select from 'react-select';
 
 import './CategoryFilter.scss';
-import { searchKeyword } from './CategoryFilterActions';
-import CategoryFilterList from './CategoryFilterList';
+import { searchKeyword, setCategory } from './CategoryFilterActions';
 
 class CategoryFilter extends React.Component {
-	handleKeyword(event) {
-		this.props.searchKeyword({ keyword: event.target.value });
-	}
+	handleKeyword = (newValue) => {
+		const inputValue = newValue.replace(/\W/g, '');
+		this.props.searchKeyword({ keyword: inputValue });
+	};
+	handleChange = (selected) => {
+		this.props.setCategory({ category: selected });
+	};
 	render() {
-		const { keyword, categoryResults } = this.props;
+		const { keyword, categoryResults, category } = this.props;
+
+		const options = categoryResults.map((obj) => {
+			return { value: obj.id, label: obj.title };
+		});
 
 		return (
 			<div className="category-filter">
-				<input type="text" value={keyword || ''} onChange={this.handleKeyword.bind(this)} />
-				<CategoryFilterList data={categoryResults} />
+				<Select
+					name="category"
+					isMulti
+					value={category}
+					inputValue={keyword}
+					options={options}
+					onInputChange={this.handleKeyword.bind(this)}
+					onChange={this.handleChange.bind(this)}
+				/>
 			</div>
 		);
 	}
@@ -24,12 +39,14 @@ class CategoryFilter extends React.Component {
 const mapStateToProps = (state) => {
 	return {
 		keyword: state.keyword,
+		category: state.category,
 		categoryResults: state.categoryResults
 	};
 };
 
 const mapDispatchToProps = {
-	searchKeyword
+	searchKeyword,
+	setCategory
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CategoryFilter);

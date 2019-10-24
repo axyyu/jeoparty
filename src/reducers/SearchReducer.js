@@ -1,9 +1,9 @@
 const initialState = {
 	fromDate: null,
 	toDate: null,
-	difficulty: null,
+	difficulty: [],
 	category: [],
-	keyword: null,
+	keyword: '',
 	categoryResults: [],
 	error: null
 };
@@ -21,7 +21,10 @@ export default function reducer(state = initialState, action) {
 			};
 		}
 		case 'SEARCH_SET_CATEGORY': {
-			break;
+			return {
+				...state,
+				category: action.payload.category
+			};
 		}
 		case 'SEARCH_SET_KEYWORD': {
 			return {
@@ -36,7 +39,10 @@ export default function reducer(state = initialState, action) {
 			};
 		}
 		case 'SEARCH_SET_DIFFICULTY': {
-			break;
+			return {
+				...state,
+				difficulty: action.payload.difficulty
+			};
 		}
 		case 'SEARCH_SET_ERROR': {
 			return {
