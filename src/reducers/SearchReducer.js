@@ -2,7 +2,10 @@ const initialState = {
 	fromDate: null,
 	toDate: null,
 	difficulty: null,
-	category: null
+	category: [],
+	keyword: null,
+	categoryResults: [],
+	error: null
 };
 
 export default function reducer(state = initialState, action) {
@@ -20,8 +23,26 @@ export default function reducer(state = initialState, action) {
 		case 'SEARCH_SET_CATEGORY': {
 			break;
 		}
+		case 'SEARCH_SET_KEYWORD': {
+			return {
+				...state,
+				keyword: action.payload.keyword
+			};
+		}
+		case 'SEARCH_SET_CATEGORY_KEYWORD_SUCCESS': {
+			return {
+				...state,
+				categoryResults: action.payload.categories
+			};
+		}
 		case 'SEARCH_SET_DIFFICULTY': {
 			break;
+		}
+		case 'SEARCH_SET_ERROR': {
+			return {
+				...state,
+				error: action.payload.error
+			};
 		}
 		default:
 			return state;

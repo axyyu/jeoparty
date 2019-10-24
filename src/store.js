@@ -5,7 +5,13 @@ import thunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 
 import reducers from './reducers';
+import rootSaga from './sagas';
 
-const middleware = applyMiddleware(createSagaMiddleware(), thunk, logger);
+const sagaMiddleware = createSagaMiddleware();
+const middleware = applyMiddleware(sagaMiddleware, thunk, logger);
 
-export default createStore(reducers, middleware);
+const store = createStore(reducers, middleware);
+
+sagaMiddleware.run(rootSaga);
+
+export default store;

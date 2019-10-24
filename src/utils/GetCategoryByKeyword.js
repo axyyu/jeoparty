@@ -37,7 +37,7 @@ function parseResults($) {
 
 async function getCategoryByKeyword(keyword) {
 	const page = await fetchResults(keyword);
-	parseResults(page);
+	return parseResults(page);
 }
 
 export default getCategoryByKeyword;
