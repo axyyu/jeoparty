@@ -1,10 +1,16 @@
 const initialState = {
+	// Filters
 	fromDate: null,
 	toDate: null,
 	difficulty: [],
 	category: [],
 	keyword: '',
 	categoryResults: [],
+	// Clues
+	clueOffset: 0,
+	clueResults: [],
+	clueOffSetInterval: 0,
+	// Misc
 	error: null
 };
 
@@ -42,6 +48,19 @@ export default function reducer(state = initialState, action) {
 			return {
 				...state,
 				difficulty: action.payload.difficulty
+			};
+		}
+		case 'SEARCH_SET_CLUES_SUCCESS': {
+			return {
+				...state,
+				clueResults: action.payload.clues
+			};
+		}
+		case 'SEARCH_SET_CLUE_OFFSET_INTERVAL': {
+			return {
+				...state,
+				clueOffSetInterval: action.payload.interval,
+				clueOffset: 0
 			};
 		}
 		case 'SEARCH_SET_ERROR': {
