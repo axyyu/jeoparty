@@ -5,7 +5,7 @@ import Select from 'react-select';
 import './DifficultyFilter.scss';
 import { setDifficulty } from './DifficultyFilterActions';
 
-var options = Array.from({ length: 10 }, (_, i) => (i + 1) * 100).map((obj) => {
+var options = [ 100, 200, 300, 400, 500, 600, 800, 1000 ].map((obj) => {
 	return { value: obj, label: obj };
 });
 

@@ -1,0 +1,87 @@
+@import "colors";
+
+.search-results-list {
+	min-height: 100%;
+	list-style: none;
+	padding: 0;
+	width: 100%;
+
+	li {
+		padding: 16px;
+		box-shadow: 0px 0px 16px -8px rgba($dark, 0.2);
+		border-radius: 16px;
+		border: 1px solid rgba($dark, 0.2);
+
+		transition: all 0.1s ease;
+
+		&:hover {
+			box-shadow: 0px 0px 16px -4px rgba($dark, 0.3);
+		}
+
+		.question {
+			display: flex;
+			align-items: center;
+
+			h4 {
+				flex: 1;
+				margin: 0;
+				margin-right: 16px;
+				font-weight: 500;
+				user-select: none;
+
+				&:hover {
+					cursor: default;
+				}
+			}
+
+			.question-actions {
+				display: flex;
+				align-items: center;
+
+				.difficulty,
+				.category {
+					margin: 0 8px;
+					border-radius: 8px;
+					padding: 4px 8px;
+				}
+
+				.difficulty {
+					color: $background;
+					background: $accent2;
+				}
+				.category {
+					color: $background;
+					background: $accent;
+				}
+
+				.divider {
+					height: 32px;
+					width: 1px;
+					margin: 0 16px;
+					background: $dark;
+				}
+
+				.favorite {
+					display: flex;
+					align-items: center;
+
+					.filled {
+						fill: $accent;
+					}
+				}
+			}
+		}
+
+		.question-info {
+			margin-top: 8px;
+
+			b {
+				font-weight: 600;
+				margin-right: 8px;
+			}
+			span {
+				margin-right: 32px;
+			}
+		}
+	}
+}

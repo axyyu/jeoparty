@@ -1,16 +1,28 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import SearchResultsList from './SearchResultsList';
+import SearchResultsList from './SearchResultList';
+import SearchPages from './SearchPages';
+import SearchLoader from './SearchLoader';
 import './SearchResults.scss';
-// import { searchClues } from './SearchResultsActions';
 
 class SearchResults extends React.Component {
 	render() {
-		const { clueResults } = this.props;
-		return (
-			<div className="search-bar">
+		const { clueResults, searched, loader } = this.props;
+
+		const content = loader ? (
+			<SearchLoader />
+		) : searched ? (
+			<div className="search-results-content">
 				<SearchResultsList data={clueResults} />
+				<SearchPages />
+			</div>
+		) : null;
+
+		return (
+			<div className="search-results">
+				<h2>Results</h2>
+				{content}
 			</div>
 		);
 	}
@@ -18,7 +30,9 @@ class SearchResults extends React.Component {
 
 const mapStateToProps = (state) => {
 	return {
-		clueResults: state.clueResults
+		clueResults: state.clueResults,
+		searched: state.searched,
+		loader: state.loader
 	};
 };
 

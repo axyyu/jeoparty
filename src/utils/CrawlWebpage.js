@@ -6,6 +6,7 @@
 
 import axios from 'axios';
 import cheerio from 'cheerio';
+import moment from 'moment';
 
 export async function fetchResults(url) {
 	const result = await axios.get(url);
@@ -33,4 +34,12 @@ export function parseCategoryResults($) {
 		}
 	});
 	return categories;
+}
+
+export function parseDates(data) {
+	return data.map((obj) => {
+		const values = { ...obj };
+		values.parsedDate = moment(values.airdate).format('ddd, MMM Do YYYY, h:mm:ss a');
+		return values;
+	});
 }

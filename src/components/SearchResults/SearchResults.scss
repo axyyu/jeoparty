@@ -1,3 +1,10 @@
 .search-results {
+	display: flex;
+	flex-direction: column;
 	flex: 1;
+	margin-right: 64px;
+
+	.search-results-content {
+		flex: 1;
+	}
 }
