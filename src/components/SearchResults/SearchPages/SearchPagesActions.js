@@ -16,7 +16,8 @@ export function searchNextClues(payload) {
 					category: categories[category] ? categories[category].value : null,
 					min_date: state.fromDate,
 					max_date: state.toDate,
-					offset: offset
+					offset: offset,
+					count: state.clueOffSetInterval
 				};
 				dispatch(getClues(payload));
 			}

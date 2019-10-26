@@ -1,10 +1,10 @@
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects';
 
 import { cluesApi } from './API';
-import { parseDates } from '../utils/CrawlWebpage';
+import { processResults } from '../utils/ClueResults';
 
 export function* onClues() {
-	yield takeLatest('SEARCH_API_CLUES', fetchClues);
+	yield takeEvery('SEARCH_API_CLUES', fetchClues);
 }
 
 export function* fetchClues(action) {
@@ -12,7 +12,8 @@ export function* fetchClues(action) {
 		yield put({ type: 'SEARCH_SET_CLUES_PENDING', payload: {} });
 
 		const clues = yield call(cluesApi, action.payload);
-		const data = parseDates(clues.data);
+
+		const data = processResults(clues.data.slice(0, action.payload.count));
 
 		yield put({ type: 'SEARCH_SET_CLUES_SUCCESS', payload: { clues: data } });
 	} catch (e) {
