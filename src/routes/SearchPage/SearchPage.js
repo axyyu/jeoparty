@@ -2,6 +2,7 @@ import React from 'react';
 
 import SearchBar from '../../components/SearchBar';
 import SearchResults from '../../components/SearchResults';
+import './SearchPage.scss';
 
 class SearchPage extends React.Component {
 	componentDidMount() {
@@ -9,8 +10,7 @@ class SearchPage extends React.Component {
 	}
 	render() {
 		return (
-			<div className="home-page">
-				<h1>Home Page</h1>
+			<div className="search-page">
 				<SearchBar />
 				<SearchResults />
 			</div>

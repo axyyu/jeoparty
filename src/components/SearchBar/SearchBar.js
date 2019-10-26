@@ -17,9 +17,10 @@ class SearchBar extends React.Component {
 	render() {
 		return (
 			<div className="search-bar">
-				<DateFilter />
+				<h2>Filters</h2>
 				<CategoryFilter />
 				<DifficultyFilter />
+				<DateFilter />
 				<button onClick={this.handleSearch.bind(this)}>Search</button>
 			</div>
 		);

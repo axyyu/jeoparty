@@ -21,7 +21,8 @@ class CategoryFilter extends React.Component {
 		});
 
 		return (
-			<div className="category-filter">
+			<div className="filter category-filter">
+				<label htmlFor="caregory">Category</label>
 				<Select
 					name="category"
 					isMulti

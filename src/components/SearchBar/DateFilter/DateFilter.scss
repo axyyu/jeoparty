@@ -1,1 +1,63 @@
-@import '~react-day-picker/lib/style';
+@import "~react-day-picker/lib/style";
+@import "colors";
+
+.date-filter {
+	.DayPicker-Month {
+		margin: 0;
+		margin-top: 1em;
+
+		.DayPicker-Day {
+			border-radius: 0;
+		}
+
+		.DayPicker-Day--today {
+			color: $accent;
+			font-weight: 700;
+		}
+
+		.DayPicker-Day--start {
+			border-radius: 8px 0 0 8px;
+		}
+
+		.DayPicker-Day--end {
+			border-radius: 0 8px 8px 0;
+		}
+
+		.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):not(.DayPicker-Day--start):not(.DayPicker-Day--end) {
+			position: relative;
+			background-color: rgba($dark, 0.1);
+			color: $font;
+		}
+
+		.DayPicker-Day--start,
+		.DayPicker-Day--end {
+			background-color: $accent;
+			color: $background;
+		}
+
+		.DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):hover {
+			background-color: rgba($dark, 0.03) !important;
+			color: $font;
+		}
+
+		.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):hover {
+			background-color: rgba($dark, 0.3) !important;
+			color: $font;
+		}
+	}
+	.clear-filter {
+		font-size: .8em;
+		font-weight: 300;
+		text-decoration: underline;
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	.DayPicker-Day,
+	.DayPicker-Months,
+	.DayPicker-wrapper,
+	.DayPicker-NavButton {
+		outline: none;
+	}
+}

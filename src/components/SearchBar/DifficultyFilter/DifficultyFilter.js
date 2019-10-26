@@ -17,7 +17,8 @@ class DifficultyFilter extends React.Component {
 		const { difficulty } = this.props;
 
 		return (
-			<div className="difficulty-filter">
+			<div className="filter difficulty-filter">
+				<label htmlFor="difficulty">Difficulty/Value</label>
 				<Select
 					name="difficulty"
 					isMulti

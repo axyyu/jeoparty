@@ -10,6 +10,9 @@ class DateFilter extends React.Component {
 		const range = DateUtils.addDayToRange(day, this.props);
 		this.props.setDateRange(range);
 	}
+	handleClear() {
+		this.props.setDateRange({ from: null, to: null });
+	}
 	render() {
 		const { from, to } = this.props;
 		const modifiers = { start: from, end: to };
@@ -18,7 +21,11 @@ class DateFilter extends React.Component {
 		};
 
 		return (
-			<div className="date-filter">
+			<div className="filter date-filter">
+				<label htmlFor="date">Timeframe Aired</label>
+				<span className="clear-filter" onClick={this.handleClear.bind(this)}>
+					Clear Timeframe
+				</span>
 				<DayPicker
 					className="Selectable"
 					selectedDays={[ from, { from, to } ]}

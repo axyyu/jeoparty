@@ -1,0 +1,33 @@
+@import "colors";
+
+.search-bar {
+	.filter {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 32px;
+
+		label {
+			margin-bottom: 8px;
+			font-size: .8em;
+			text-transform: uppercase;
+			font-weight: 300;
+		}
+	}
+	button {
+		background: $accent;
+		color: $background;
+		font-size: 1em;
+		padding: 12px 32px;
+		box-shadow: 2px 2px 8px -2px rgba($dark, 0.2);
+		border-radius: 8px;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}
+
+.css-6q0nyr-Svg:hover,
+.css-1alnv5e:hover {
+	cursor: pointer;
+}
