@@ -15,7 +15,7 @@ export function searchClues() {
 			for (let difficulty in difficulties) {
 				const payload = {
 					value: difficulties[difficulty],
-					category: categories[category] ? category.value : null,
+					category: categories[category] ? categories[category].value : null,
 					min_date: state.fromDate,
 					max_date: state.toDate,
 					offset: 0
@@ -37,5 +37,12 @@ function setClueOffsetInterval(payload) {
 	return {
 		type: 'SEARCH_SET_CLUE_OFFSET_INTERVAL',
 		payload: payload
+	};
+}
+
+export function getPopularCategory() {
+	return {
+		type: 'SEARCH_API_CATEGORY_KEYWORD',
+		payload: { keyword: '' }
 	};
 }

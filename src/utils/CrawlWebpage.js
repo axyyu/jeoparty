@@ -7,12 +7,12 @@
 import axios from 'axios';
 import cheerio from 'cheerio';
 
-async function fetchResults(keyword) {
-	const result = await axios.get(`http://jservice.io/search?query=${keyword}`);
+export async function fetchResults(url) {
+	const result = await axios.get(url);
 	return cheerio.load(result.data);
 }
 
-function parseResults($) {
+export function parseCategoryResults($) {
 	const rows = $('tbody').find('tr').find('td');
 
 	const categories = [];
@@ -34,10 +34,3 @@ function parseResults($) {
 	});
 	return categories;
 }
-
-async function getCategoryByKeyword(keyword) {
-	const page = await fetchResults(keyword);
-	return parseResults(page);
-}
-
-export default getCategoryByKeyword;

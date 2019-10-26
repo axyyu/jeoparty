@@ -5,16 +5,18 @@ import DateFilter from './DateFilter';
 import CategoryFilter from './CategoryFilter';
 import DifficultyFilter from './DifficultyFilter';
 import './SearchBar.scss';
-import { searchClues } from './SearchBarActions';
+import { searchClues, getPopularCategory } from './SearchBarActions';
 
 class SearchBar extends React.Component {
 	handleSearch() {
 		this.props.searchClues();
 	}
+	componentDidMount() {
+		this.props.getPopularCategory();
+	}
 	render() {
 		return (
 			<div className="search-bar">
-				<h1>Search Bar</h1>
 				<DateFilter />
 				<CategoryFilter />
 				<DifficultyFilter />
@@ -25,7 +27,8 @@ class SearchBar extends React.Component {
 }
 
 const mapDispatchToProps = {
-	searchClues
+	searchClues,
+	getPopularCategory
 };
 
 export default connect(null, mapDispatchToProps)(SearchBar);

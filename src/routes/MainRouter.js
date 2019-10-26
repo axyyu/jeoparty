@@ -10,17 +10,13 @@ function MainRouter() {
 	return (
 		<Router>
 			<NavBar />
-			<Switch>
-				<Route exact path="/">
-					<HomePage />
-				</Route>
-				<Route path="/search">
-					<SearchPage />
-				</Route>
-				<Route path="/favorites">
-					<FavoritesPage />
-				</Route>
-			</Switch>
+			<section className="page-content">
+				<Switch>
+					<Route exact path="/" component={HomePage} />
+					<Route path="/search" component={SearchPage} />
+					<Route path="/favorites" component={FavoritesPage} />
+				</Switch>
+			</section>
 		</Router>
 	);
 }

@@ -60,7 +60,8 @@ export default function reducer(state = initialState, action) {
 			return {
 				...state,
 				clueOffSetInterval: action.payload.interval,
-				clueOffset: 0
+				clueOffset: 0,
+				clueResults: []
 			};
 		}
 		case 'SEARCH_SET_ERROR': {

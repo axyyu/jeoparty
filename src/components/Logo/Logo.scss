@@ -1,0 +1,12 @@
+@import "colors";
+
+.logo {
+	padding: 64px;
+
+	.logo-text {
+		font-size: 3em;
+	}
+	.party-emphasis {
+		color: $accent;
+	}
+}

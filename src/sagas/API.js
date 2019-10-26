@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import getCategoryByKeyword from '../utils/GetCategoryByKeyword';
+import { fetchResults, parseCategoryResults } from '../utils/CrawlWebpage';
 
 function cleanPayload(payload) {
 	const copy = { ...payload };
@@ -13,7 +13,13 @@ function cleanPayload(payload) {
 }
 
 export async function categoryKeywordApi(keyword) {
-	return await getCategoryByKeyword(keyword);
+	const page = await fetchResults(`http://jservice.io/search?query=${keyword}`);
+	return parseCategoryResults(page);
+}
+
+export async function popularCategoryApi() {
+	const page = await fetchResults(`http://jservice.io/popular`);
+	return parseCategoryResults(page);
 }
 
 export async function cluesApi(payload) {

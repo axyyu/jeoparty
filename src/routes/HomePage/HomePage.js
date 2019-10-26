@@ -1,14 +1,18 @@
 import React from 'react';
 
-import SearchBar from '../../components/SearchBar';
+import Logo from '../../components/Logo';
+import LandingInfo from '../../components/LandingInfo';
+import './HomePage.scss';
 
-function HomePage() {
-	return (
-		<div className="home-page">
-			<h1>Home Page</h1>
-			<SearchBar />
-		</div>
-	);
+class HomePage extends React.Component {
+	render() {
+		return (
+			<div className="home-page">
+				<Logo />
+				<LandingInfo />
+			</div>
+		);
+	}
 }
 
 export default HomePage;
