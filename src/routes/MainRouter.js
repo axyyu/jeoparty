@@ -5,6 +5,7 @@ import HomePage from './HomePage';
 import SearchPage from './SearchPage';
 import FavoritesPage from './FavoritesPage';
 import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 
 function MainRouter() {
 	return (
@@ -17,6 +18,7 @@ function MainRouter() {
 					<Route path="/favorites" component={FavoritesPage} />
 				</Switch>
 			</section>
+			<Footer />
 		</Router>
 	);
 }

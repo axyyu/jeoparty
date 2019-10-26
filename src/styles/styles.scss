@@ -1,3 +1,5 @@
+@import 'colors';
+
 html,
 body {
 	margin: 0px;
@@ -14,6 +16,11 @@ h6 {
 	font-weight: bold;
 }
 
+a {
+	color: $font;
+	text-decoration: none;
+}
+
 #root {
 	display: flex;
 	flex-direction: column;
@@ -24,4 +31,8 @@ h6 {
 		flex: 1;
 		display: flex;
 	}
+}
+
+.party-emphasis {
+	color: $accent;
 }
