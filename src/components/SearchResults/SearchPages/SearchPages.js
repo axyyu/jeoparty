@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { ArrowRight, ArrowLeft } from 'react-feather';
 
 import { searchNextClues } from './SearchPagesActions';
 import './SearchPages.scss';
@@ -11,16 +12,24 @@ class SearchPages extends React.Component {
 		}
 	}
 	handleNextClues() {
-		if (this.props.resultsCount > 90) {
+		if (this.props.resultsCount > 0) {
 			this.props.searchNextClues({ offset: this.props.clueOffset + 1 });
 		}
 	}
 
 	render() {
+		const arrowLeft = this.props.clueOffset > 0 ? 'arrow' : 'arrow disabled';
+		const arrowRight = this.props.resultsCount > 0 ? 'arrow' : 'arrow disabled';
+
 		return (
 			<div className="search-pages">
-				<button onClick={this.handlePrevClues.bind(this)}>Load Previous</button>
-				<button onClick={this.handleNextClues.bind(this)}>Load Next</button>
+				<span className={arrowLeft} onClick={this.handlePrevClues.bind(this)}>
+					<ArrowLeft />
+				</span>
+				<span className="page-number">{this.props.clueOffset + 1}</span>
+				<span className={arrowRight} onClick={this.handleNextClues.bind(this)}>
+					<ArrowRight />
+				</span>
 			</div>
 		);
 	}

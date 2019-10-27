@@ -13,7 +13,7 @@ const initialState = {
 	clueOffSetInterval: 0,
 	// Misc
 	error: null,
-	searched: true,
+	searched: false,
 	loader: false
 };
 

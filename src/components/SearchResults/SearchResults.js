@@ -17,7 +17,9 @@ class SearchResults extends React.Component {
 				<SearchResultsList data={clueResults} />
 				<SearchPages />
 			</div>
-		) : null;
+		) : (
+			<p>Click the search button on the left to search for Jeopardy questions!</p>
+		);
 
 		return (
 			<div className="search-results">

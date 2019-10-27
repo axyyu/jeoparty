@@ -1,5 +1,6 @@
 import React from 'react';
 import { Star } from 'react-feather';
+import DOMPurify from 'dompurify';
 
 import './SearchResultList.scss';
 
@@ -11,16 +12,16 @@ class SearchResultListItem extends React.Component {
 		};
 	}
 	handleExpand() {
-		console.log(this.props);
 		this.setState({ reveal: !this.state.reveal });
 	}
 	render() {
+		const answer = DOMPurify.sanitize(this.props.answer);
 		const content = this.state.reveal ? (
 			<div className="question-info">
-				<span>
-					<b>Answer:</b> {this.props.answer}
+				<span className="info-value">
+					<b>Answer:</b> <span dangerouslySetInnerHTML={{ __html: answer }} />
 				</span>
-				<span>
+				<span className="info-value">
 					<b>Air Date:</b> {this.props.parsedDate}
 				</span>
 			</div>
@@ -54,7 +55,13 @@ class SearchResultListItem extends React.Component {
 
 class SearchResultList extends React.Component {
 	render() {
-		const items = this.props.data.map((obj) => <SearchResultListItem key={obj.id} {...obj} />);
+		const items =
+			this.props.data.length > 0 ? (
+				this.props.data.map((obj) => <SearchResultListItem key={obj.id} {...obj} />)
+			) : (
+				<p>Sorry, no results were found. Try going back a page?</p>
+			);
+
 		return <ul className="search-results-list">{items}</ul>;
 	}
 }
