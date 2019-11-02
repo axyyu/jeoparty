@@ -1,9 +1,11 @@
 import React from 'react';
 
+import './FavoritesPage.scss';
+
 function FavoritesPage() {
 	return (
-		<div className="fav-page">
-			<h1>Favorites Page</h1>
+		<div className="favorites-page">
+			<h1>My Favorites</h1>
 		</div>
 	);
 }

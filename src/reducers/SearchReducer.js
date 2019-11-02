@@ -14,7 +14,9 @@ const initialState = {
 	// Misc
 	error: null,
 	searched: false,
-	loader: false
+	loader: false,
+	// Favorites
+	favorites: {}
 };
 
 export default function reducer(state = initialState, action) {
@@ -35,7 +37,7 @@ export default function reducer(state = initialState, action) {
 		case 'SEARCH_SET_CATEGORY': {
 			return {
 				...state,
-				category: action.payload.category
+				category: action.payload.category ? action.payload.category : []
 			};
 		}
 		case 'SEARCH_SET_KEYWORD': {
@@ -53,7 +55,7 @@ export default function reducer(state = initialState, action) {
 		case 'SEARCH_SET_DIFFICULTY': {
 			return {
 				...state,
-				difficulty: action.payload.difficulty
+				difficulty: action.payload.difficulty ? action.payload.difficulty : []
 			};
 		}
 		case 'SEARCH_SET_CLUES_SUCCESS': {

@@ -66,8 +66,14 @@
 					display: flex;
 					align-items: center;
 
-					.filled {
-						fill: $accent;
+					&:hover {
+						cursor: pointer;
+					}
+				}
+				.filled {
+					svg {
+						stroke: $accent3;
+						fill: $accent3;
 					}
 				}
 			}

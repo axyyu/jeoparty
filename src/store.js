@@ -8,7 +8,7 @@ import reducers from './reducers';
 import rootSaga from './sagas';
 
 const sagaMiddleware = createSagaMiddleware();
-const middleware = applyMiddleware(sagaMiddleware, thunk);
+const middleware = applyMiddleware(sagaMiddleware, thunk, logger);
 
 const store = createStore(reducers, middleware);
 
