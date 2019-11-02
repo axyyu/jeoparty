@@ -1,0 +1,89 @@
+@import "colors";
+
+.favorites-list {
+	display: flex;
+	list-style: none;
+	padding: 0px;
+
+	flex-wrap: wrap;
+	margin: 0 -16px;
+
+	li {
+		flex-basis: 100%;
+		display: flex;
+		flex-direction: column;
+
+		min-width: 250px;
+		max-width: 400px;
+		padding: 16px;
+		box-shadow: 0px 0px 16px -8px rgba($dark, 0.2);
+
+		box-sizing: border-box;
+		margin: 16px;
+
+		&:hover {
+			box-shadow: 0px 0px 16px -4px rgba($dark, 0.3);
+		}
+
+		h4 {
+			margin: 0;
+		}
+
+		p {
+			flex: 1;
+		}
+
+		.delete-favorite {
+			float: right;
+			display: flex;
+			align-items: center;
+
+			svg {
+				height: 1em;
+				width: 1em;
+
+				margin-left: 16px;
+				padding: 4px;
+
+				border-radius: 100%;
+				border: 1px solid $background;
+				transition: border 0.1s ease;
+			}
+
+			&:hover {
+				cursor: pointer;
+
+				svg {
+					border: 1px solid rgba($dark, 0.5);
+				}
+			}
+		}
+
+		.favorite-info {
+			display: flex;
+			flex-wrap: wrap;
+			margin: -8px;
+
+			.difficulty,
+			.category,
+			.date {
+				margin: 8px;
+				border-radius: 8px;
+				padding: 4px 8px;
+			}
+
+			.difficulty {
+				color: $background;
+				background: $accent2;
+			}
+			.category {
+				color: $background;
+				background: $accent;
+			}
+			.date {
+				color: $background;
+				background: $dark;
+			}
+		}
+	}
+}
