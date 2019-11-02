@@ -14,7 +14,7 @@ class FavoritesList extends React.Component {
 					return <FavoritesListItem key={key} {...obj} />;
 				})
 			) : (
-				<p>Sorry, no results were found. Try going back a page?</p>
+				<p>Sorry, no favorites were found. Try searching for clues and clicking on the star!</p>
 			);
 
 		return <ul className="favorites-list">{items}</ul>;

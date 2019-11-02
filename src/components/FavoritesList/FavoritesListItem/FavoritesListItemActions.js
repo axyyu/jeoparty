@@ -1,15 +1,14 @@
-export function toggleFavorite(payload) {
+import { saveFavorites } from '../../../utils/SaveFavorites';
+
+export function removeFavorite(payload) {
 	return (dispatch, getState) => {
 		const state = getState();
 		const favorites = { ...state.favorites };
 
 		if (payload.id in favorites) {
 			delete favorites[payload.id];
-		} else {
-			favorites[payload.id] = payload;
 		}
 
-		console.log(favorites);
 		saveFavorites(favorites);
 
 		dispatch(updateFavorites(favorites));
@@ -21,8 +20,4 @@ function updateFavorites(payload) {
 		type: 'FAVORITES_UPDATE_FAVORITES',
 		payload: payload
 	};
-}
-
-function saveFavorites(payload) {
-	localStorage.setItem('favorites', JSON.stringify(payload));
 }
