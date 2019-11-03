@@ -2,7 +2,7 @@
 	"name": "co-jeopardy",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "http://w4v3s.github.io/jeoparty",
+	"homepage": "https://w4v3s.github.io/jeoparty/",
 	"dependencies": {
 		"axios": "^0.19.0",
 		"cheerio": "^1.0.0-rc.3",
