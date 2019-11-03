@@ -16,7 +16,7 @@ class MainRouter extends React.Component {
 	}
 	render() {
 		return (
-			<Router basename={process.env.PUBLIC_URL}>
+			<Router>
 				<NavBar />
 				<section className="page-content">
 					<Switch>
