@@ -23,6 +23,8 @@ class SearchResultListItem extends React.Component {
 	}
 	render() {
 		const answer = DOMPurify.sanitize(this.props.answer);
+		const question = DOMPurify.sanitize(this.props.question);
+
 		const content = this.state.reveal ? (
 			<div className="question-info">
 				<span className="info-value">
@@ -41,7 +43,7 @@ class SearchResultListItem extends React.Component {
 		return (
 			<li id={this.props.id}>
 				<div className="question">
-					<h4 onClick={this.handleExpand.bind(this)}>{this.props.question}</h4>
+					<h4 onClick={this.handleExpand.bind(this)} dangerouslySetInnerHTML={{ __html: question }} />
 					<div className="question-actions">
 						<span className="difficulty">{value}</span>
 						<span className="category">{this.props.category.title}</span>

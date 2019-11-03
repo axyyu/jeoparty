@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { X } from 'react-feather';
+import DOMPurify from 'dompurify';
 
 import { closeQuestion } from './QuestionActions';
 import './Question.scss';
@@ -21,8 +22,11 @@ class Question extends React.Component {
 	render() {
 		const question = this.props.question;
 
+		const questionText = DOMPurify.sanitize(question.question);
+		const answerText = DOMPurify.sanitize(question.answer);
+
 		const answer = this.state.reveal ? (
-			<p>{question.answer}</p>
+			<p dangerouslySetInnerHTML={{ __html: answerText }} />
 		) : (
 			<button onClick={this.handleShowAnswer.bind(this)}>Reveal Answer</button>
 		);
@@ -33,7 +37,7 @@ class Question extends React.Component {
 					<span className="hide-question" onClick={this.handleCloseQuestion.bind(this)}>
 						<X />
 					</span>
-					<h4>{question.question}</h4>
+					<h4 dangerouslySetInnerHTML={{ __html: questionText }} />
 					{answer}
 				</div>
 			</div>
