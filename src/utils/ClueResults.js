@@ -10,7 +10,7 @@ export function parseDates(data) {
 
 export function filterResults(data) {
 	return data.filter((obj) => {
-		return obj.question !== '=' && obj.question !== '';
+		return obj.question !== '=' && obj.question !== '' && !obj.invalid_count;
 	});
 }
 
