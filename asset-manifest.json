@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/jeoparty/static/css/main.2e8340ba.chunk.css",
+    "main.js": "/jeoparty/static/js/main.45ade824.chunk.js",
+    "main.js.map": "/jeoparty/static/js/main.45ade824.chunk.js.map",
+    "runtime-main.js": "/jeoparty/static/js/runtime-main.ce601b68.js",
+    "runtime-main.js.map": "/jeoparty/static/js/runtime-main.ce601b68.js.map",
+    "static/js/2.3e45b7e1.chunk.js": "/jeoparty/static/js/2.3e45b7e1.chunk.js",
+    "static/js/2.3e45b7e1.chunk.js.map": "/jeoparty/static/js/2.3e45b7e1.chunk.js.map",
+    "index.html": "/jeoparty/index.html",
+    "precache-manifest.7ee39dd35a10d541eadc9f3ad3e3b853.js": "/jeoparty/precache-manifest.7ee39dd35a10d541eadc9f3ad3e3b853.js",
+    "service-worker.js": "/jeoparty/service-worker.js",
+    "static/css/main.2e8340ba.chunk.css.map": "/jeoparty/static/css/main.2e8340ba.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ce601b68.js",
+    "static/js/2.3e45b7e1.chunk.js",
+    "static/css/main.2e8340ba.chunk.css",
+    "static/js/main.45ade824.chunk.js"
+  ]
+}
