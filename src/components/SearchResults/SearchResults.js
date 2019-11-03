@@ -8,13 +8,13 @@ import './SearchResults.scss';
 
 class SearchResults extends React.Component {
 	render() {
-		const { clueResults, searched, loader } = this.props;
+		const { clueResults, searched, loader, offset } = this.props;
 
 		const content = loader ? (
 			<Loader />
 		) : searched ? (
 			<div className="search-results-content">
-				<SearchResultsList data={clueResults} />
+				<SearchResultsList data={clueResults} page={offset} />
 				<SearchPages />
 			</div>
 		) : (
@@ -34,7 +34,8 @@ const mapStateToProps = (state) => {
 	return {
 		clueResults: state.clueResults,
 		searched: state.searched,
-		loader: state.loader
+		loader: state.loader,
+		offset: state.clueOffset
 	};
 };
 
