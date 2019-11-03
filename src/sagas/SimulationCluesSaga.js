@@ -2,6 +2,7 @@ import { call, put, takeEvery, select } from 'redux-saga/effects';
 
 import { cluesApi } from './API';
 import { processResults } from '../utils/ClueResults';
+import { generateId } from '../utils/Random';
 
 export function* onSimulationClues() {
 	yield takeEvery('SIMULATION_API_CLUES', fetchClues);
@@ -13,7 +14,7 @@ export function* fetchClues(action) {
 
 		const clues = yield call(cluesApi, action.payload);
 
-		const data = processResults(clues.data.slice(0, action.payload.count));
+		const data = processResults(clues.data);
 
 		const state = yield select();
 		const board = { ...state.simBoard };
@@ -25,7 +26,7 @@ export function* fetchClues(action) {
 		if (data.length > 0) {
 			board[action.payload.category].push(data[0]);
 		} else {
-			board[action.payload.category].push(null);
+			board[action.payload.category].push({ id: generateId(), value: action.payload.value });
 		}
 
 		yield put({ type: 'SIMULATION_SET_CLUES_SUCCESS', payload: { board } });

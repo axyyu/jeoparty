@@ -6,16 +6,21 @@ import './BoardItem.scss';
 
 class BoardItem extends React.Component {
 	handleShowQuestion() {
-		const payload = { ...this.props };
-		delete payload.showQuestion;
-		console.log(payload);
-		this.props.showQuestion(payload);
+		if (this.props.question) {
+			const payload = { ...this.props };
+			delete payload.showQuestion;
+			this.props.showQuestion(payload);
+		}
 	}
 	render() {
 		const answered = this.props.answered ? 'answered' : '';
-		const content = this.props.answered ? null : <span>${this.props.value}</span>;
+		const exists = this.props.question ? 'exists' : '';
+
+		const value = this.props.question ? <span>${this.props.value}</span> : <span>N/A</span>;
+		const content = this.props.answered ? null : value;
+
 		return (
-			<div className={`board-box board-item ${answered}`} onClick={this.handleShowQuestion.bind(this)}>
+			<div className={`board-box board-item ${answered} ${exists}`} onClick={this.handleShowQuestion.bind(this)}>
 				{content}
 			</div>
 		);
