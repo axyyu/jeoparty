@@ -13,7 +13,7 @@ export function* fetchClues(action) {
 
 		const clues = yield call(cluesApi, action.payload);
 
-		const data = processResults(clues.data.slice(0, action.payload.count));
+		const data = processResults(clues.data).slice(0, action.payload.count);
 
 		yield put({ type: 'SEARCH_SET_CLUES_SUCCESS', payload: { clues: data } });
 	} catch (e) {
