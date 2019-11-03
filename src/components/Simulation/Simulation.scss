@@ -1,4 +1,20 @@
+@import "scaffold";
+
 .simulation {
 	flex: 1;
 	display: flex;
+
+	.mobile-block {
+		display: none;
+
+		@include breakpoint('xs') {
+			display: block;
+		}
+	}
+
+	@include breakpoint('xs') {
+		.start-simulation {
+			display: none;
+		}
+	}
 }

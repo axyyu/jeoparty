@@ -13,6 +13,9 @@ class Simulation extends React.Component {
 		const error = this.props.error ? <p>{this.props.error}</p> : null;
 		return (
 			<div className="simulation">
+				<div className="mobile-block">
+					<p>Sorry, the simulation is currently not supported on mobile devices.</p>
+				</div>
 				{error}
 				{content}
 			</div>

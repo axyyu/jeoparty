@@ -22,6 +22,7 @@
 		.question {
 			display: flex;
 			align-items: center;
+			flex-wrap: wrap;
 
 			h4 {
 				flex: 1;
@@ -29,6 +30,8 @@
 				margin-right: 16px;
 				font-weight: 500;
 				user-select: none;
+
+				min-width: 250px;
 
 				&:hover {
 					cursor: pointer;
@@ -38,6 +41,7 @@
 			.question-actions {
 				display: flex;
 				align-items: center;
+				margin-left: -8px;
 
 				.difficulty,
 				.category {
@@ -80,6 +84,8 @@
 		}
 
 		.question-info {
+			display: flex;
+			flex-wrap: wrap;
 			margin-top: 8px;
 
 			b {
@@ -87,6 +93,7 @@
 				margin-right: 8px;
 			}
 			.info-value {
+				flex: 1;
 				margin-right: 32px;
 			}
 		}
