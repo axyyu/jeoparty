@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import SearchResultsList from './SearchResultList';
 import SearchPages from './SearchPages';
-import SearchLoader from './SearchLoader';
+import Loader from '../Loader';
 import './SearchResults.scss';
 
 class SearchResults extends React.Component {
@@ -11,7 +11,7 @@ class SearchResults extends React.Component {
 		const { clueResults, searched, loader } = this.props;
 
 		const content = loader ? (
-			<SearchLoader />
+			<Loader />
 		) : searched ? (
 			<div className="search-results-content">
 				<SearchResultsList data={clueResults} />

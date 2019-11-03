@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Select from 'react-select';
 
-import './CategoryFilter.scss';
 import { searchKeyword, setCategory } from './CategoryFilterActions';
 
 class CategoryFilter extends React.Component {
@@ -20,8 +19,14 @@ class CategoryFilter extends React.Component {
 			return { value: obj.id, label: obj.title };
 		});
 
+		const textClass = category.length === 5 ? 'success' : 'error';
+
 		return (
 			<div className="filter category-filter">
+				<p>
+					Please choose 5 different categories.
+					<span className={`counter ${textClass}`}>{`${category.length}/5 selected.`}</span>
+				</p>
 				<label htmlFor="category">Category</label>
 				<Select
 					name="category"
@@ -39,9 +44,9 @@ class CategoryFilter extends React.Component {
 
 const mapStateToProps = (state) => {
 	return {
-		keyword: state.keyword,
-		category: state.category,
-		categoryResults: state.categoryResults
+		keyword: state.simKeyword,
+		category: state.simCategory,
+		categoryResults: state.simCategoryResults
 	};
 };
 

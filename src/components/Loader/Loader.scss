@@ -1,6 +1,6 @@
 @import "colors";
 
-.search-loader {
+.loader {
 	font-size: 10px;
 	margin: 50px auto;
 	text-indent: -9999em;
@@ -20,7 +20,7 @@
 	-ms-transform: translateZ(0);
 	transform: translateZ(0);
 }
-.search-loader:before {
+.loader:before {
 	width: 50%;
 	height: 50%;
 	background: $accent;
@@ -30,7 +30,7 @@
 	left: 0;
 	content: '';
 }
-.search-loader:after {
+.loader:after {
 	background: $background;
 	width: 75%;
 	height: 75%;

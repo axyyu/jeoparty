@@ -16,7 +16,16 @@ const initialState = {
 	searched: false,
 	loader: false,
 	// Favorites
-	favorites: {}
+	favorites: {},
+	// Simulation
+	simulation: false,
+	simBoard: {},
+	simLoader: false,
+	simDifficulty: [],
+	simCategory: [],
+	simKeyword: '',
+	simCategoryResults: [],
+	simError: null
 };
 
 export default function reducer(state = initialState, action) {
