@@ -21,9 +21,12 @@ class SearchResults extends React.Component {
 			<p>Click the search button on the left to search for Jeopardy questions!</p>
 		);
 
+		const error = this.props.error ? <p>{this.props.error}</p> : null;
+
 		return (
 			<div className="search-results">
 				<h2>Results</h2>
+				{error}
 				{content}
 			</div>
 		);
@@ -35,7 +38,8 @@ const mapStateToProps = (state) => {
 		clueResults: state.clueResults,
 		searched: state.searched,
 		loader: state.loader,
-		offset: state.clueOffset
+		offset: state.clueOffset,
+		error: state.error
 	};
 };
 

@@ -1,4 +1,5 @@
 @import "colors";
+@import "scaffold";
 
 .search-bar {
 	margin-right: 64px;
@@ -27,6 +28,10 @@
 		&:hover {
 			cursor: pointer;
 		}
+	}
+
+	@include breakpoint('sm') {
+		width: 100%;
 	}
 }
 

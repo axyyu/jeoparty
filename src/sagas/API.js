@@ -13,19 +13,19 @@ function cleanPayload(payload) {
 }
 
 export async function categoryKeywordApi(keyword) {
-	const page = await fetchResults(`https://jservice.io/search?query=${keyword}`);
+	const page = await fetchResults(`https://cors-anywhere.herokuapp.com/http://jservice.io/search?query=${keyword}`);
 	return parseCategoryResults(page);
 }
 
 export async function popularCategoryApi() {
-	const page = await fetchResults(`https://jservice.io/popular`);
+	const page = await fetchResults(`https://cors-anywhere.herokuapp.com/http://jservice.io/popular`);
 	return parseCategoryResults(page);
 }
 
 export async function cluesApi(payload) {
 	payload = cleanPayload(payload);
 
-	return await axios.get(`https://jservice.io/api/clues`, {
+	return await axios.get(`https://cors-anywhere.herokuapp.com/http://jservice.io/api/clues`, {
 		params: payload
 	});
 }

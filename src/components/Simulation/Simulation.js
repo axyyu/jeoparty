@@ -10,14 +10,21 @@ class Simulation extends React.Component {
 	render() {
 		const screen = this.props.simulation ? <Board /> : <StartSimulation />;
 		const content = this.props.loader ? <Loader /> : screen;
-		return <div className="simulation">{content}</div>;
+		const error = this.props.error ? <p>{this.props.error}</p> : null;
+		return (
+			<div className="simulation">
+				{error}
+				{content}
+			</div>
+		);
 	}
 }
 
 const mapStateToProps = (state) => {
 	return {
 		simulation: state.simulation,
-		loader: state.simLoader
+		loader: state.simLoader,
+		error: state.simError
 	};
 };
 
