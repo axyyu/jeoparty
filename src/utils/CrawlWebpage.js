@@ -1,6 +1,6 @@
 /**
  * As jService had no way to retrieve categories by query on their API, 
- * I built a crawler to use the http://jservice.io/search page to obtain
+ * I built a crawler to use the https://jservice.io/search page to obtain
  * categories using a search term.
  */
 
