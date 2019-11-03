@@ -25,7 +25,8 @@ const initialState = {
 	simCategory: [],
 	simKeyword: '',
 	simCategoryResults: [],
-	simError: null
+	simError: null,
+	question: null
 };
 
 export default function reducer(state = initialState, action) {

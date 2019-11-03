@@ -1,0 +1,16 @@
+@import "colors";
+
+.board-item {
+	box-shadow: 0px 0px 16px -8px rgba($dark, 0.2);
+	border: 1px solid $dark;
+
+	font-size: 2em;
+
+	&.answered {
+		background: $dark;
+	}
+	&:hover {
+		box-shadow: 0px 0px 16px -4px rgba($dark, 0.3);
+		cursor: pointer;
+	}
+}
