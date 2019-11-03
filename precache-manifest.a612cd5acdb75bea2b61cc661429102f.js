@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "dcaf2fee3d2626defcbcfb445bd6f232",
+    "revision": "d430caeb097d5026059db32db3232073",
     "url": "/jeoparty/index.html"
   },
   {
-    "revision": "e813c5c0d4dbecfcfa66",
+    "revision": "6e8266ab52dc00bd5db2",
     "url": "/jeoparty/static/css/main.5c852969.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/jeoparty/static/js/2.0777c9b2.chunk.js"
   },
   {
-    "revision": "e813c5c0d4dbecfcfa66",
-    "url": "/jeoparty/static/js/main.b9449a7f.chunk.js"
+    "revision": "6e8266ab52dc00bd5db2",
+    "url": "/jeoparty/static/js/main.2074d3ff.chunk.js"
   },
   {
     "revision": "9f7a5a876eff7b982b75",
